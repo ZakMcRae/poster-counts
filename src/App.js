@@ -1,9 +1,19 @@
 import "./App.css";
+import { useState } from "react";
+import InputRow from "./components/InputRow";
+import LabelRow from "./components/LabelRow";
+import TotalsRow from "./components/TotalsRow";
 
 function App() {
+  const [countStore, setCountScore] = useState({});
+
   return (
     <div className="App">
-      <h1>Welcome</h1>
+      <div className="counts-grid">
+        <LabelRow></LabelRow>
+        <InputRow></InputRow>
+        <TotalsRow></TotalsRow>
+      </div>
     </div>
   );
 }

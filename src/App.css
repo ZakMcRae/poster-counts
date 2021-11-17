@@ -3,3 +3,63 @@
   padding: 0px;
   border: 0px;
 }
+
+html {
+  font-family: sans-serif;
+}
+
+.blue-text {
+  color: #00c7fc;
+}
+
+.red-text {
+  color: #eb7256;
+}
+
+.green-text {
+  color: #74d6ad;
+}
+
+.black-text {
+  color: #646464;
+}
+
+.counts-grid {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-top: 25px;
+  margin: auto;
+}
+
+.input-row,
+.label-row,
+.totals-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr) 2fr;
+  align-items: center;
+  width: 600px;
+}
+
+.input-element,
+.label-element {
+  padding: 5px;
+}
+
+.input-element {
+  border: 1px solid #ccc;
+}
+
+.input-element:not(:last-child) {
+  border-right: none;
+}
+
+.button-container {
+  grid-column-start: span 3;
+}
+
+.more-rows-button {
+  padding: 5px 10px;
+  margin: 5px 0px;
+}
