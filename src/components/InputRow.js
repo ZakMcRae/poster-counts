@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function InputRow(props) {
   const [editMode, setEditMode] = useState(false);
-
+  const { setCountScore } = props;
+  const { price } = props.posterInfo;
   const {
     qtyAvailable,
     countIn,
@@ -14,6 +15,29 @@ function InputRow(props) {
     gross,
   } = props.countStore;
 
+  useEffect(() => {
+    //update countScore when a value changes
+    setCountScore((prevCountScore) => {
+      return {
+        ...prevCountScore,
+        totalIn: +countIn + +add,
+        totalSold: +totalIn - +countOut - +comp,
+        gross: +totalSold * +price,
+        qtyAvailable: +countOut - +countIn,
+      };
+    });
+  }, [
+    qtyAvailable,
+    countIn,
+    add,
+    comp,
+    countOut,
+    totalIn,
+    setCountScore,
+    price,
+    totalSold,
+  ]);
+
   const enableEditMode = (e) => {
     setEditMode(e.target.id);
   };
@@ -23,7 +47,6 @@ function InputRow(props) {
   };
 
   const updateValue = (e) => {
-    console.log(e.target.id, e.target.value);
     props.setCountScore((prevSetCountScore) => {
       return { ...prevSetCountScore, [e.target.id]: e.target.value };
     });
@@ -39,6 +62,7 @@ function InputRow(props) {
         {qtyAvailable}
       </div>
 
+      {/* if value of editMode matches div id, replace with an input field */}
       {editMode === "countIn" ? (
         <input
           id="countIn"
