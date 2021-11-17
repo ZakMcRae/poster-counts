@@ -33,7 +33,7 @@ function App() {
           setCountScore={setCountScore}
           posterInfo={posterInfo}
         ></InputRow>
-        <TotalsRow></TotalsRow>
+        <TotalsRow countStore={countStore}></TotalsRow>
         {/* todo remove debugging button  */}
         <button onClick={() => console.log(countStore)}>log countStore</button>
       </div>
