@@ -1,9 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import ProductDisplay from "./components/ProductDisplay";
-import InputRow from "./components/InputRow";
-import LabelRow from "./components/LabelRow";
-import TotalsRow from "./components/TotalsRow";
+import CountsGrid from "./components/CountsGrid";
 
 function App() {
   // keep track of whether counts grid can be modified or not
@@ -33,19 +31,14 @@ function App() {
   return (
     <div className="App">
       <ProductDisplay posterInfo={posterInfo} />
-      <div className="counts-grid">
-        <LabelRow></LabelRow>
-        <InputRow
-          countStore={countStore}
-          setCountScore={setCountScore}
-          posterInfo={posterInfo}
-        ></InputRow>
-        <TotalsRow
-          countStore={countStore}
-          posterInfo={posterInfo}
-          setPosterInfo={setPosterInfo}
-        ></TotalsRow>
-      </div>
+      <CountsGrid
+        countStore={countStore}
+        setCountScore={setCountScore}
+        posterInfo={posterInfo}
+        setPosterInfo={setPosterInfo}
+        settledStatus={settledStatus}
+        setSettledStatus={setSettledStatus}
+      />
     </div>
   );
 }
