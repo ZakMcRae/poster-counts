@@ -35,7 +35,8 @@ html {
 
 .input-row,
 .label-row,
-.totals-row {
+.totals-row,
+.form-row {
   display: grid;
   grid-template-columns: repeat(7, 1fr) 2fr;
   align-items: center;
@@ -64,7 +65,7 @@ html {
   margin: 5px 0px;
 }
 
-input {
+.input-row > input {
   width: 55px;
   height: 28px;
   border: 1px solid #ccc;
@@ -111,4 +112,58 @@ input {
 
 .price {
   margin-top: 100px;
+}
+
+.pop-up {
+  grid-column-start: span 3;
+}
+
+.edit-form {
+  background-color: #888888;
+  border-radius: 5px;
+  color: #d3d3d3;
+}
+
+.edit-form p {
+  padding: 10px 0px;
+}
+
+.edit-form p,
+.edit-form label {
+  text-align: start;
+  margin-left: 15px;
+}
+
+.edit-form > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form input,
+.edit-form textarea {
+  width: 80%;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  display: flex;
+  align-self: center;
+}
+
+.edit-form button {
+  color: #888888;
+  background-color: #cacaca;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  display: flex;
+  align-self: flex-end;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #888888;
+  margin-left: 80px;
 }
