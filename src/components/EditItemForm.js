@@ -36,7 +36,7 @@ function EditItemForm(props) {
             defaultValue={description}
             rows="4"
           />
-          <button>OK</button>
+          <button>Update</button>
         </form>
       </div>
     </div>
