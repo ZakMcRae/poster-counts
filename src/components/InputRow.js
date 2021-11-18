@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 
 function InputRow(props) {
+  // tracks which input row element should be changed from a div to an input
   const [editMode, setEditMode] = useState(false);
-  const { setCountScore } = props;
+
+  // destructure props to clean up code below
+  const { setCountScore, settledStatus } = props;
   const { price } = props.posterInfo;
   const {
     qtyAvailable,
@@ -15,8 +18,8 @@ function InputRow(props) {
     gross,
   } = props.countStore;
 
+  //update countScore when a value changes
   useEffect(() => {
-    //update countScore when a value changes
     setCountScore((prevCountScore) => {
       return {
         ...prevCountScore,
@@ -38,20 +41,28 @@ function InputRow(props) {
     totalSold,
   ]);
 
+  // sets which input row element should be changed from a div to an input
+  // if settled status is true, no edits can be made
   const enableEditMode = (e) => {
-    setEditMode(e.target.id);
+    if (!settledStatus) {
+      setEditMode(e.target.id);
+    } else setEditMode(false);
   };
 
+  // unsets which input row element should be changed into an input - turns entire row back to divs
   const removeEditMode = (e) => {
     setEditMode(false);
   };
 
+  // changes value in state for countStore
   const updateValue = (e) => {
     props.setCountScore((prevSetCountScore) => {
       return { ...prevSetCountScore, [e.target.id]: e.target.value };
     });
   };
 
+  // all black-text, green-text, red-text elements below are conditionally rendered as inputs instead of divs based on the value of editMode in state
+  // all other elements are just divs to display the value in the count grid
   return (
     <div className="input-row">
       <div
@@ -62,7 +73,6 @@ function InputRow(props) {
         {qtyAvailable}
       </div>
 
-      {/* if value of editMode matches div id, replace with an input field */}
       {editMode === "countIn" ? (
         <input
           id="countIn"

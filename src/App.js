@@ -5,7 +5,7 @@ import CountsGrid from "./components/CountsGrid";
 
 function App() {
   // keep track of whether counts grid can be modified or not
-  const [settledStatus, setSettledStatus] = useState("unsettled");
+  const [settledStatus, setSettledStatus] = useState(false);
 
   // keep track of poster info
   const [posterInfo, setPosterInfo] = useState({
@@ -29,17 +29,27 @@ function App() {
   });
 
   return (
-    <div className="App">
-      <ProductDisplay posterInfo={posterInfo} />
-      <CountsGrid
-        countStore={countStore}
-        setCountScore={setCountScore}
-        posterInfo={posterInfo}
-        setPosterInfo={setPosterInfo}
-        settledStatus={settledStatus}
-        setSettledStatus={setSettledStatus}
-      />
-    </div>
+    <>
+      <div className="App">
+        <ProductDisplay posterInfo={posterInfo} />
+        <CountsGrid
+          countStore={countStore}
+          setCountScore={setCountScore}
+          posterInfo={posterInfo}
+          setPosterInfo={setPosterInfo}
+          settledStatus={settledStatus}
+          setSettledStatus={setSettledStatus}
+        />
+      </div>
+      {/* todo delete this - test settle button */}
+      <button
+        onClick={() => {
+          setSettledStatus(true);
+        }}
+      >
+        Settle
+      </button>
+    </>
   );
 }
 

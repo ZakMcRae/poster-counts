@@ -9,7 +9,6 @@ function CountsGrid(props) {
     posterInfo,
     setPosterInfo,
     settledStatus,
-    setSettledStatus,
   } = props;
 
   return (
@@ -19,6 +18,7 @@ function CountsGrid(props) {
         countStore={countStore}
         setCountScore={setCountScore}
         posterInfo={posterInfo}
+        settledStatus={settledStatus}
       ></InputRow>
       <TotalsRow
         countStore={countStore}
