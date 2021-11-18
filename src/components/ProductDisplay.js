@@ -15,7 +15,7 @@ function ProductDisplay(props) {
         </div>
       </div>
       <div className="right-product-display">
-        <p className="price">${price.toFixed(2)}</p>
+        <p className="price">${parseFloat(price).toFixed(2)}</p>
       </div>
     </div>
   );
