@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import ProductDisplay from "./components/ProductDisplay";
 import CountsGrid from "./components/CountsGrid";
+import SettlementSection from "./components/SettlementSection";
 
 function App() {
   // keep track of whether counts grid can be modified or not
@@ -29,9 +30,9 @@ function App() {
   });
 
   return (
-    <>
-      <div className="App">
-        <ProductDisplay posterInfo={posterInfo} />
+    <div className="App">
+      <ProductDisplay posterInfo={posterInfo} />
+      <div>
         <CountsGrid
           countStore={countStore}
           setCountScore={setCountScore}
@@ -40,16 +41,12 @@ function App() {
           settledStatus={settledStatus}
           setSettledStatus={setSettledStatus}
         />
+        <SettlementSection
+          setSettledStatus={setSettledStatus}
+          countStore={countStore}
+        />
       </div>
-      {/* todo delete this - test settle button */}
-      <button
-        onClick={() => {
-          setSettledStatus(true);
-        }}
-      >
-        Settle
-      </button>
-    </>
+    </div>
   );
 }
 
