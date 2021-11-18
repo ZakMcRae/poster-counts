@@ -12,10 +12,11 @@ function SettlementSection(props) {
           <p>Sold</p>
         </div>
         <p className="gross">
-          $
-          {parseFloat(gross)
-            .toFixed(2)
-            .toLocaleString("en", { useGrouping: true })}
+          {parseFloat(gross).toLocaleString("en", {
+            // currency not actually usd - formating for display purposes only
+            currency: "usd",
+            style: "currency",
+          })}
         </p>
         <button
           onClick={() => {
