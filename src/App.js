@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import ProductDisplay from "./components/ProductDisplay";
 import InputRow from "./components/InputRow";
 import LabelRow from "./components/LabelRow";
 import TotalsRow from "./components/TotalsRow";
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <div className="App">
+      <ProductDisplay posterInfo={posterInfo} />
       <div className="counts-grid">
         <LabelRow></LabelRow>
         <InputRow

@@ -30,7 +30,7 @@ html {
   text-align: center;
   align-items: center;
   margin-top: 25px;
-  margin: auto;
+  margin-right: 50px;
 }
 
 .input-row,
@@ -39,7 +39,7 @@ html {
   display: grid;
   grid-template-columns: repeat(7, 1fr) 2fr;
   align-items: center;
-  width: 600px;
+  width: 500px;
 }
 
 .input-element,
@@ -65,10 +65,50 @@ html {
 }
 
 input {
-  width: 65px;
+  width: 55px;
   height: 28px;
   border: 1px solid #ccc;
   border-right: none;
   text-align: center;
   font-size: 16px;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.product-display {
+  display: flex;
+  flex-direction: row;
+  margin-right: 100px;
+}
+
+.left-product-display > p {
+  display: flex;
+  justify-content: flex-start;
+  margin: 5px 30px;
+  margin-top: 25px;
+}
+
+.product-image {
+  width: 200px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+}
+
+.icons > svg {
+  color: white;
+  background-color: #c7c7c7;
+  padding: 5px;
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.price {
+  margin-top: 100px;
 }
