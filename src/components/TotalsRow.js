@@ -1,5 +1,6 @@
 import { useState } from "react";
 import EditItemForm from "./EditItemForm";
+import ProgressCircle from "./ProgressCircle";
 
 function TotalsRow(props) {
   const { totalIn, comp, countOut, totalSold, gross } = props.countStore;
@@ -21,7 +22,11 @@ function TotalsRow(props) {
         <div className="totals-element blue-text">{totalIn}</div>
         <div className="totals-element red-text">{comp}</div>
         <div className="totals-element black-text">{countOut}</div>
-        <div className="totals-element blue-text">{totalSold}</div>
+        <ProgressCircle
+          className="totals-element"
+          totalIn={totalIn}
+          totalSold={totalSold}
+        />
         <div className="totals-element blue-text">${gross.toFixed(2)}</div>
       </div>
       <div className="form-row">
