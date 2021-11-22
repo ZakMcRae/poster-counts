@@ -15,8 +15,8 @@ function EditItemForm(props) {
   };
 
   return (
-    <div className="pop-up">
-      <div className="arrow-up"></div>
+    <div className="edit-item-pop-up">
+      <div className="edit-item-arrow-up"></div>
       <div className="edit-form">
         <p>Edit Item</p>
         <form action="#" onSubmit={submitEditForm}>
