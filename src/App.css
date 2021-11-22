@@ -121,7 +121,7 @@ html {
   margin-top: 100px;
 }
 
-.pop-up {
+.edit-item-pop-up {
   grid-column-start: span 3;
   position: absolute;
   transform: translateY(50%);
@@ -168,7 +168,7 @@ html {
   align-self: flex-end;
 }
 
-.arrow-up {
+.edit-item-arrow-up {
   width: 0;
   height: 0;
   border-left: 5px solid transparent;
@@ -225,4 +225,45 @@ html {
   border-radius: 2px;
   color: #8c8c8c;
   margin-top: 10px;
+}
+
+/* .poster-note-notification {
+  position: relative;
+  left: 160px;
+  top: -160px;
+  color: #00c7fc;
+  font-size: 24px;
+} */
+
+.poster-note-notification {
+  position: absolute;
+  transform: translate(140px, 20px);
+  color: #00c7fc;
+  background-color: #333;
+  border-radius: 50%;
+  font-size: 24px;
+}
+
+.poster-note {
+  position: absolute;
+  transform: translate(25px, -155px);
+  /* left: 50px;
+  top: -160px; */
+  width: 150px;
+}
+
+.poster-note p {
+  background-color: #888888;
+  border-radius: 5px;
+  color: #d3d3d3;
+  padding: 10px;
+}
+
+.poster-note-arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #888888;
+  transform: translateX(120px);
 }
