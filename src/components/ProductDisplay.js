@@ -8,13 +8,13 @@ import {
 
 function ProductDisplay(props) {
   const [noteHover, setNoteHover] = useState(false);
-  const { price, imgUrl, description } = props.posterInfo;
+  const { price, imgUrl, note } = props.posterInfo;
 
   return (
     <div className="product-display">
       <div className="left-product-display">
-        {/* if a description/note exist show exclamation indicator for note on hover */}
-        {description === "" ? null : (
+        {/* if a note exist show exclamation indicator for note on hover */}
+        {note === "" ? null : (
           <FaExclamationCircle
             className="poster-note-notification"
             onMouseEnter={() => {
@@ -30,7 +30,7 @@ function ProductDisplay(props) {
         {noteHover ? (
           <div className="poster-note">
             <div className="poster-note-arrow-up"></div>
-            <p>{description}</p>
+            <p>{note}</p>
           </div>
         ) : null}
         <div className="icons">

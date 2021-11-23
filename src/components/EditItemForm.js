@@ -1,5 +1,5 @@
 function EditItemForm(props) {
-  const { price, description } = props.posterInfo;
+  const { price, note } = props.posterInfo;
   const { setPosterInfo, toggleEditFormStatus } = props;
 
   const submitEditForm = (e) => {
@@ -8,7 +8,7 @@ function EditItemForm(props) {
       return {
         ...prevPosterInfo,
         price: e.target[0].value,
-        description: e.target[1].value,
+        note: e.target[1].value,
       };
     });
     toggleEditFormStatus();
@@ -28,12 +28,12 @@ function EditItemForm(props) {
             name="price"
             defaultValue={price}
           />
-          <label htmlFor="description">Description</label>
+          <label htmlFor="note">Note</label>
           <textarea
-            className="description-input"
+            className="note-input"
             type="text"
-            name="description"
-            defaultValue={description}
+            name="note"
+            defaultValue={note}
             rows="4"
           />
           <button>Update</button>
