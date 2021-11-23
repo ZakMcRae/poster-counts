@@ -3,27 +3,28 @@ import LabelRow from "../components/LabelRow";
 import TotalsRow from "../components/TotalsRow";
 
 function CountsGrid(props) {
-  const {
-    countStore,
-    setCountScore,
-    posterInfo,
-    setPosterInfo,
-    settledStatus,
-  } = props;
+  const { setCountStore, posterInfo, setPosterInfo, settledStatus, totals } =
+    props;
 
   return (
     <div className="counts-grid">
       <LabelRow></LabelRow>
-      <InputRow
-        countStore={countStore}
-        setCountScore={setCountScore}
-        posterInfo={posterInfo}
-        settledStatus={settledStatus}
-      ></InputRow>
+      {/* Create an InputRow for every size in the poster object in state */}
+      {posterInfo.sizes.map((size) => {
+        return (
+          <InputRow
+            key={size}
+            size={size}
+            setCountStore={setCountStore}
+            posterInfo={posterInfo}
+            settledStatus={settledStatus}
+          ></InputRow>
+        );
+      })}
       <TotalsRow
-        countStore={countStore}
         posterInfo={posterInfo}
         setPosterInfo={setPosterInfo}
+        totals={totals}
       ></TotalsRow>
     </div>
   );

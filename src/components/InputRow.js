@@ -4,9 +4,21 @@ function InputRow(props) {
   // tracks which input row element should be changed from a div to an input
   const [editMode, setEditMode] = useState(false);
 
+  // keep track of counts per InputRow
+  const [inputCountStore, setInputCountStore] = useState({
+    qtyAvailable: 0,
+    countIn: 0,
+    add: 0,
+    totalIn: 0,
+    comp: 0,
+    countOut: 0,
+    totalSold: 0,
+    gross: 0,
+  });
+
   // destructure props to clean up code below
-  const { setCountScore, settledStatus } = props;
-  const { price } = props.posterInfo;
+  const { size, setCountStore, settledStatus } = props;
+  const { price, id } = props.posterInfo;
   const {
     qtyAvailable,
     countIn,
@@ -16,13 +28,13 @@ function InputRow(props) {
     countOut,
     totalSold,
     gross,
-  } = props.countStore;
+  } = inputCountStore;
 
-  //update countScore when a value changes
+  // update inputCountStore when a value changes
   useEffect(() => {
-    setCountScore((prevCountScore) => {
+    setInputCountStore((prevInputCountStore) => {
       return {
-        ...prevCountScore,
+        ...prevInputCountStore,
         totalIn: +countIn + +add,
         totalSold: +totalIn - +countOut - +comp,
         gross: +totalSold * +price,
@@ -36,10 +48,26 @@ function InputRow(props) {
     comp,
     countOut,
     totalIn,
-    setCountScore,
+    setCountStore,
     price,
     totalSold,
   ]);
+
+  // update countStore when a value changes
+  useEffect(() => {
+    setCountStore((prevSetCountStore) => {
+      return {
+        ...prevSetCountStore,
+        [size]: {
+          totalIn: totalIn,
+          comp: comp,
+          countOut: +countOut,
+          totalSold: totalSold,
+          gross: gross,
+        },
+      };
+    });
+  }, [totalIn, comp, countOut, totalSold, gross, size, setCountStore]);
 
   // sets which input row element should be changed from a div to an input
   // if settled status is true, no edits can be made
@@ -54,10 +82,12 @@ function InputRow(props) {
     setEditMode(false);
   };
 
-  // changes value in state for countStore
+  // changes value in inputCountStore based on id and input element
   const updateValue = (e) => {
-    props.setCountScore((prevSetCountScore) => {
-      return { ...prevSetCountScore, [e.target.id]: e.target.value };
+    // itemInfoArray = ['itemID', 'itemSize', 'inputElement']
+    const itemInfoArray = e.target.id.split(":");
+    setInputCountStore((prevInputCountStore) => {
+      return { ...prevInputCountStore, [itemInfoArray[2]]: e.target.value };
     });
   };
 
@@ -65,17 +95,12 @@ function InputRow(props) {
   // all other elements are just divs to display the value in the count grid
   return (
     <div className="input-row">
-      <div
-        className="input-element black-text"
-        id="qtyAvailable"
-        onClick={enableEditMode}
-      >
-        {qtyAvailable}
-      </div>
+      <div className="input-element black-text size">{size}</div>
+      <div className="input-element black-text">{qtyAvailable}</div>
 
-      {editMode === "countIn" ? (
+      {editMode === `${id}:${size}:countIn` ? (
         <input
-          id="countIn"
+          id={`${id}:${size}:countIn`}
           placeholder={countIn}
           autoFocus
           onChange={updateValue}
@@ -84,16 +109,16 @@ function InputRow(props) {
       ) : (
         <div
           className="input-element black-text"
-          id="countIn"
+          id={`${id}:${size}:countIn`}
           onClick={enableEditMode}
         >
           {countIn}
         </div>
       )}
 
-      {editMode === "add" ? (
+      {editMode === `${id}:${size}:add` ? (
         <input
-          id="add"
+          id={`${id}:${size}:add`}
           placeholder={add}
           autoFocus
           onChange={updateValue}
@@ -102,7 +127,7 @@ function InputRow(props) {
       ) : (
         <div
           className="input-element green-text"
-          id="add"
+          id={`${id}:${size}:add`}
           onClick={enableEditMode}
         >
           {add}
@@ -111,9 +136,9 @@ function InputRow(props) {
 
       <div className="input-element blue-text">{totalIn}</div>
 
-      {editMode === "comp" ? (
+      {editMode === `${id}:${size}:comp` ? (
         <input
-          id="comp"
+          id={`${id}:${size}:comp`}
           placeholder={comp}
           autoFocus
           onChange={updateValue}
@@ -122,16 +147,16 @@ function InputRow(props) {
       ) : (
         <div
           className="input-element red-text"
-          id="comp"
+          id={`${id}:${size}:comp`}
           onClick={enableEditMode}
         >
           {comp}
         </div>
       )}
 
-      {editMode === "countOut" ? (
+      {editMode === `${id}:${size}:countOut` ? (
         <input
-          id="countOut"
+          id={`${id}:${size}:countOut`}
           placeholder={countOut}
           autoFocus
           onChange={updateValue}
@@ -140,7 +165,7 @@ function InputRow(props) {
       ) : (
         <div
           className="input-element black-text"
-          id="countOut"
+          id={`${id}:${size}:countOut`}
           onClick={enableEditMode}
         >
           {countOut}

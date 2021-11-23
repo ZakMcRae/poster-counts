@@ -1,6 +1,6 @@
 function SettlementSection(props) {
   const { setSettledStatus } = props;
-  const { totalSold, gross } = props.countStore;
+  const { totalSold, gross } = props.totals;
 
   return (
     <div className="settlement-section">

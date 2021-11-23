@@ -3,9 +3,11 @@ import EditItemForm from "./EditItemForm";
 import ProgressCircle from "./ProgressCircle";
 
 function TotalsRow(props) {
-  const { totalIn, comp, countOut, totalSold, gross } = props.countStore;
-  const { posterInfo, setPosterInfo } = props;
+  // keep track of whether to display form to edit item's price or note
   const [editFormStatus, setEditFormStatus] = useState(false);
+
+  const { posterInfo, setPosterInfo } = props;
+  const { totalIn, comp, countOut, totalSold, gross } = props.totals;
 
   const toggleEditFormStatus = () => {
     setEditFormStatus((prevEditFormStatus) => !prevEditFormStatus);
@@ -25,8 +27,7 @@ function TotalsRow(props) {
         <div className="totals-element">
           <ProgressCircle totalIn={totalIn} totalSold={totalSold} />
         </div>
-        {/* todo gross should display 2 decimal places */}
-        <div className="totals-element blue-text">${gross}</div>
+        <div className="totals-element blue-text">${gross.toFixed(2)}</div>
       </div>
       <div className="form-row">
         {editFormStatus ? (

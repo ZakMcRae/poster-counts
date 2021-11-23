@@ -41,9 +41,13 @@ html {
 .totals-row,
 .form-row {
   display: grid;
-  grid-template-columns: repeat(7, 1fr) 2fr;
+  grid-template-columns: repeat(8, 1fr) 2fr;
   align-items: center;
   width: 500px;
+}
+
+.input-row {
+  margin-bottom: 5px;
 }
 
 .label-row {
@@ -51,8 +55,16 @@ html {
 }
 
 .input-element,
-.label-element {
+.label-element,
+.totals-element {
   padding: 5px;
+  width: 50px;
+}
+
+/* Spacing to account for border on input row*/
+.label-element,
+.totals-element {
+  margin-right: 1px;
 }
 
 .input-element {
@@ -64,7 +76,8 @@ html {
 }
 
 .button-container {
-  grid-column-start: span 3;
+  grid-column-start: span 4;
+  width: 244px;
 }
 
 .more-rows-button {
@@ -73,8 +86,8 @@ html {
 }
 
 .input-row > input {
-  width: 55px;
-  height: 28px;
+  width: 60px;
+  height: 30px;
   border: 1px solid #ccc;
   border-right: none;
   text-align: center;
@@ -98,6 +111,12 @@ html {
   justify-content: flex-start;
   margin: 5px 30px;
   margin-top: 25px;
+}
+
+.product-label {
+  margin-top: 25px;
+  margin-bottom: 5px;
+  margin-left: 30px;
 }
 
 .product-image {
@@ -124,7 +143,7 @@ html {
 .edit-item-pop-up {
   grid-column-start: span 3;
   position: absolute;
-  transform: translateY(50%);
+  transform: translate(35px, 95px);
 }
 
 .edit-form {
@@ -182,7 +201,6 @@ html {
   flex-direction: column;
   align-items: flex-end;
   margin-top: 25px;
-  margin-right: 75px;
 }
 
 .settlement-inner {

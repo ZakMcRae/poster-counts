@@ -7,12 +7,15 @@ import {
 } from "react-icons/fa";
 
 function ProductDisplay(props) {
+  // track if user is hovering over exclamation to display note
   const [noteHover, setNoteHover] = useState(false);
+
   const { price, imgUrl, note } = props.posterInfo;
 
   return (
     <div className="product-display">
       <div className="left-product-display">
+        <div className="product-label">Poster</div>
         {/* if a note exist show exclamation indicator for note on hover */}
         {note === "" ? null : (
           <FaExclamationCircle
