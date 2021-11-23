@@ -1,6 +1,7 @@
 function LabelRow() {
   return (
     <div className="label-row">
+      <div className="label-element"></div>
       <div className="label-element">QTY Avail.</div>
       <div className="label-element">Count In</div>
       <div className="label-element">Add</div>
