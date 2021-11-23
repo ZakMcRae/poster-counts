@@ -22,12 +22,11 @@ function TotalsRow(props) {
         <div className="totals-element blue-text">{totalIn}</div>
         <div className="totals-element red-text">{comp}</div>
         <div className="totals-element black-text">{countOut}</div>
-        <ProgressCircle
-          className="totals-element"
-          totalIn={totalIn}
-          totalSold={totalSold}
-        />
-        <div className="totals-element blue-text">${gross.toFixed(2)}</div>
+        <div className="totals-element">
+          <ProgressCircle totalIn={totalIn} totalSold={totalSold} />
+        </div>
+        {/* todo gross should display 2 decimal places */}
+        <div className="totals-element blue-text">${gross}</div>
       </div>
       <div className="form-row">
         {editFormStatus ? (
