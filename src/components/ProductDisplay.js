@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import {
   FaPlus,
   FaBoxOpen,
@@ -10,7 +11,8 @@ function ProductDisplay(props) {
   // track if user is hovering over exclamation to display note
   const [noteHover, setNoteHover] = useState(false);
 
-  const { price, imgUrl, note } = props.posterInfo;
+  // get poster info from redux store
+  const { price, imgUrl, note } = useSelector((state) => state.poster);
 
   return (
     <div className="product-display">

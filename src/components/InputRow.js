@@ -17,12 +17,14 @@ function InputRow(props) {
     gross: 0,
   });
 
-  // get settlement status from state
+  // get settlement status from redux store
   const { settledStatus } = useSelector((state) => state.settlement);
+
+  // get poster info from redux store
+  const { price, id } = useSelector((state) => state.poster);
 
   // destructure props to clean up code below
   const { size, setCountStore } = props;
-  const { price, id } = props.posterInfo;
   const {
     qtyAvailable,
     countIn,

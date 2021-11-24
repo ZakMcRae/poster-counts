@@ -1,16 +1,21 @@
+import { useSelector, useDispatch } from "react-redux";
+import { setNote, setPrice } from "../redux/poster";
+
 function EditItemForm(props) {
-  const { price, note } = props.posterInfo;
-  const { setPosterInfo, toggleEditFormStatus } = props;
+  const dispatch = useDispatch();
+
+  // get poster info from redux store
+  const { price, note } = useSelector((state) => state.poster);
+
+  const { toggleEditFormStatus } = props;
 
   const submitEditForm = (e) => {
     e.preventDefault();
-    setPosterInfo((prevPosterInfo) => {
-      return {
-        ...prevPosterInfo,
-        price: e.target[0].value,
-        note: e.target[1].value,
-      };
-    });
+
+    // set poster info in redux store
+    dispatch(setPrice(e.target[0].value));
+    dispatch(setNote(e.target[1].value));
+
     toggleEditFormStatus();
   };
 

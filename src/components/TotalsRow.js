@@ -6,7 +6,6 @@ function TotalsRow(props) {
   // keep track of whether to display form to edit item's price or note
   const [editFormStatus, setEditFormStatus] = useState(false);
 
-  const { posterInfo, setPosterInfo } = props;
   const { totalIn, comp, countOut, totalSold, gross } = props.totals;
 
   const toggleEditFormStatus = () => {
@@ -31,11 +30,7 @@ function TotalsRow(props) {
       </div>
       <div className="form-row">
         {editFormStatus ? (
-          <EditItemForm
-            posterInfo={posterInfo}
-            setPosterInfo={setPosterInfo}
-            toggleEditFormStatus={toggleEditFormStatus}
-          />
+          <EditItemForm toggleEditFormStatus={toggleEditFormStatus} />
         ) : null}
       </div>
     </>

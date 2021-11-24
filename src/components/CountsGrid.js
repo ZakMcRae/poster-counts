@@ -1,29 +1,28 @@
 import InputRow from "../components/InputRow";
 import LabelRow from "../components/LabelRow";
 import TotalsRow from "../components/TotalsRow";
+import { useSelector } from "react-redux";
 
 function CountsGrid(props) {
-  const { setCountStore, posterInfo, setPosterInfo, totals } = props;
+  const { setCountStore, totals } = props;
+
+  // get poster info from redux store
+  const { sizes } = useSelector((state) => state.poster);
 
   return (
     <div className="counts-grid">
       <LabelRow></LabelRow>
       {/* Create an InputRow for every size in the poster object in state */}
-      {posterInfo.sizes.map((size) => {
+      {sizes.map((size) => {
         return (
           <InputRow
             key={size}
             size={size}
             setCountStore={setCountStore}
-            posterInfo={posterInfo}
           ></InputRow>
         );
       })}
-      <TotalsRow
-        posterInfo={posterInfo}
-        setPosterInfo={setPosterInfo}
-        totals={totals}
-      ></TotalsRow>
+      <TotalsRow totals={totals}></TotalsRow>
     </div>
   );
 }
