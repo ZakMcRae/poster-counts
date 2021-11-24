@@ -3,8 +3,7 @@ import LabelRow from "../components/LabelRow";
 import TotalsRow from "../components/TotalsRow";
 
 function CountsGrid(props) {
-  const { setCountStore, posterInfo, setPosterInfo, settledStatus, totals } =
-    props;
+  const { setCountStore, posterInfo, setPosterInfo, totals } = props;
 
   return (
     <div className="counts-grid">
@@ -17,7 +16,6 @@ function CountsGrid(props) {
             size={size}
             setCountStore={setCountStore}
             posterInfo={posterInfo}
-            settledStatus={settledStatus}
           ></InputRow>
         );
       })}

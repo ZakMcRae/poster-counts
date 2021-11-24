@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function InputRow(props) {
   // tracks which input row element should be changed from a div to an input
@@ -16,8 +17,11 @@ function InputRow(props) {
     gross: 0,
   });
 
+  // get settlement status from state
+  const { settledStatus } = useSelector((state) => state.settlement);
+
   // destructure props to clean up code below
-  const { size, setCountStore, settledStatus } = props;
+  const { size, setCountStore } = props;
   const { price, id } = props.posterInfo;
   const {
     qtyAvailable,

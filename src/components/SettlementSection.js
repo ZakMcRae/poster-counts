@@ -1,6 +1,10 @@
+import { useDispatch } from "react-redux";
+import { setStatusTrue } from "../redux/settledStatus";
+
 function SettlementSection(props) {
-  const { setSettledStatus } = props;
   const { totalSold, gross } = props.totals;
+
+  const dispatch = useDispatch();
 
   return (
     <div className="settlement-section">
@@ -20,7 +24,7 @@ function SettlementSection(props) {
         </p>
         <button
           onClick={() => {
-            setSettledStatus(true);
+            dispatch(setStatusTrue());
           }}
         >
           SETTLE

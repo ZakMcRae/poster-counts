@@ -6,7 +6,6 @@ import SettlementSection from "./components/SettlementSection";
 
 function App() {
   // keep track of whether counts grid can be modified or not
-  const [settledStatus, setSettledStatus] = useState(false);
 
   // keep track of poster info
   const [posterInfo, setPosterInfo] = useState({
@@ -51,14 +50,9 @@ function App() {
           setCountStore={setCountStore}
           posterInfo={posterInfo}
           setPosterInfo={setPosterInfo}
-          settledStatus={settledStatus}
-          setSettledStatus={setSettledStatus}
           totals={totals}
         />
-        <SettlementSection
-          setSettledStatus={setSettledStatus}
-          totals={totals}
-        />
+        <SettlementSection totals={totals} />
       </div>
     </div>
   );
