@@ -1,10 +1,11 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setStatusTrue } from "../redux/settledStatus";
 
 function SettlementSection(props) {
-  const { totalSold, gross } = props.totals;
-
   const dispatch = useDispatch();
+
+  // get totals info from redux store
+  const { totalSold, gross } = useSelector((state) => state.totals);
 
   return (
     <div className="settlement-section">

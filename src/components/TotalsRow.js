@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import EditItemForm from "./EditItemForm";
 import ProgressCircle from "./ProgressCircle";
 
@@ -6,7 +7,10 @@ function TotalsRow(props) {
   // keep track of whether to display form to edit item's price or note
   const [editFormStatus, setEditFormStatus] = useState(false);
 
-  const { totalIn, comp, countOut, totalSold, gross } = props.totals;
+  // get totals info from redux store
+  const { totalIn, comp, countOut, totalSold, gross } = useSelector(
+    (state) => state.totals
+  );
 
   const toggleEditFormStatus = () => {
     setEditFormStatus((prevEditFormStatus) => !prevEditFormStatus);
