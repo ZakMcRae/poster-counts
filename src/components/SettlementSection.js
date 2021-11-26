@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setStatusTrue } from "../redux/settledStatus";
+import { setStatusTrue } from "../redux/slices/settledStatus";
 
 function SettlementSection(props) {
   const dispatch = useDispatch();

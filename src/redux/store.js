@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import posterSliceReducer from "./poster";
-import settledStatusReducer from "./settledStatus";
-import totalsSliceReducer from "./totals";
+import posterSliceReducer from "./slices/poster";
+import settledStatusReducer from "./slices/settledStatus";
+import totalsSliceReducer from "./slices/totals";
 
 export default configureStore({
   reducer: {

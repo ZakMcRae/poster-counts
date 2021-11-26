@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { setNote, setPrice } from "../redux/poster";
+import { setNote, setPrice } from "../redux/slices/poster";
 
 function EditItemForm(props) {
   const dispatch = useDispatch();

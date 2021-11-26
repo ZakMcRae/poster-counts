@@ -4,7 +4,7 @@ export const posterSlice = createSlice({
   name: "poster",
   initialState: {
     id: "001",
-    sizes: ["small", "large"],
+    sizes: ["small", "large", "xl", "xxl"],
     price: 10,
     note: "Hamilton, ON Pier 8 Poster June 22, 2019",
     imgUrl:

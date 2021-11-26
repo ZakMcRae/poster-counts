@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import ProductDisplay from "./components/ProductDisplay";
 import CountsGrid from "./components/CountsGrid";
 import SettlementSection from "./components/SettlementSection";
-import { setTotals } from "./redux/totals";
+import { setTotals } from "./redux/slices/totals";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ function App() {
     const totals = { totalIn: 0, comp: 0, countOut: 0, totalSold: 0, gross: 0 };
     Object.keys(countStore).forEach((key) => {
       totals.totalIn += countStore[key].totalIn;
-      totals.comp += countStore[key].comp;
+      totals.comp += +countStore[key].comp;
       totals.countOut += countStore[key].countOut;
       totals.totalSold += countStore[key].totalSold;
       totals.gross += countStore[key].gross;
