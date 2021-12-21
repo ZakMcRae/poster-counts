@@ -1,70 +1,17 @@
-# Getting Started with Create React App
+# Developer Assessment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Finished assessment: [Concert Poster Sales](https://zakmcrae.github.io/poster-counts/)
+Tech Used: React, Redux, Redux Toolkit, CSS
 
-## Available Scripts
+Assesment Instructions:  
+What you see in the picture is one section of our "Counts" section of a settlement for a night.  This is one line of counts for the "Poster" that was selling for a price of $10.  Looks like we made $70 that night for the poster!  If there was more than one "size" for the poster then there would be another row in the grid, and the totals at the bottom of the grid, to the right of the "More" button, would be totals for that column.  The blue donut graph represents the percent of "Total In" that was sold.  so 7 out of the 12 were sold.
 
-In the project directory, you can run:
+You can type numbers into the boxes in the grid that are black green and red coloured.  They calculate the blue numbers dynamically as you leave the cell.  The formulae are as follows.  (note: the numbers at the bottom are off in the total, as this is just a screen grab of a small section of the page.)
 
-### `npm start`
+Total In = count in  + add
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Total Sold = Total In - count out - comp
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+When you press the settle button you can no longer edit the grid.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+When you press the "More" Button you should be presented a popover type box, like the one on the left under the picture, which allows you to change the price of the item, or add a note to this item. When you update the price or the notes the page should reflect the changes you made without reloading.  (The whole page shouldn't reload for any of this). If a description is entered, then a small circular exclamation mark is floated over the top right corner of the picture which one can hover over to see a pop up with the message inside.  (Asset for that not provided, you’ll have to figure that part out :).
